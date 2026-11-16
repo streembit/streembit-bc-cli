@@ -1,0 +1,57 @@
+{
+  "name": "streembit-bc-cli",
+  "version": "1.0.1",
+  "description": "Streembit CLI: wallet, transactions and chain queries through a read mirror; signed transactions go to the Accountable Node",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/streembit/streembit-bc-cli.git"
+  },
+  "author": "Streembit Development Team <admin@streembit.com>",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "streembit-cli": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=26.0.0"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "node --import=tsx --test tests/**/*.test.ts",
+    "test:watch": "node --import=tsx --test --watch tests/**/*.test.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "bugs": {
+    "url": "https://github.com/streembit/streembit-bc-cli/issues"
+  },
+  "homepage": "https://github.com/streembit/streembit-bc-cli#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [
+    "streembit blockchain",
+    "wallet",
+    "cli"
+  ],
+  "dependencies": {
+    "chalk": "4.1.2",
+    "decimal.js": "10.6.0",
+    "streembit-bc-sdk": "1.0.2",
+    "streembit-bc-types": "1.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  }
+}
